@@ -1,0 +1,89 @@
+<div *ngIf="users?.length > 0; else noUsers">
+<h2>Usuarios</h2>
+<table class="striped">
+    <thead>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Compañia</th>
+          <th>Tipo</th>
+          <th>Contraseña</th>
+          <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users" >
+      <tr>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.company}}</td>
+        <td>{{user.type}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.status}}</td>
+        <a href="#" class="secondary-content">
+            <i *ngIf="editState == false" (click)="editUser($event, user)" class="material-icons">mode_edit</i>
+            <i *ngIf="editState && userToEdit.id == user.id" (click)="clearState()" class="material-icons">close</i>
+          </a>
+      </tr>
+      <hr>
+      <div *ngIf="editState && userToEdit.id == user.id" class="container-updaCurso">
+        <!-- TODO: form -->
+        <form (ngSubmit)="onUpdateUser(user)" class="col s6">
+            <div class="row">
+            <div class="input-field col s6">
+              <input [(ngModel)]="user.firstName" #firstName="ngModel"  type="text" name="firstName" id="firstName" placeholder="First name">
+              <label>Primer nombre</label>
+            </div>
+            <div class="input-field col s6">
+                <input [(ngModel)]="user.lastName" #firstName="ngModel"  type="text" name="lastName" id="lastName" placeholder="Last name">
+                <label>Apellidos</label>
+              </div>
+              <div class="input-field col s6">
+                  <input [(ngModel)]="user.email" #firstName="ngModel"  type="text" name="email" id="email" placeholder="Email">
+                  <label>Correo electronico</label>
+                </div>
+                <div class="input-field col s6">
+                    <input [(ngModel)]="user.company" #firstName="ngModel"  type="text" name="company" id="company" placeholder="company name">
+                    <label>Empresa</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <input [(ngModel)]="user.type" #firstName="ngModel"  type="text" name="type" id="type" placeholder="Type">
+                      <label>Tipo de usuario</label>
+                    </div>
+                      <div class="input-field col s6">
+                          <input [(ngModel)]="user.password" #firstName="ngModel"  type="text" name="password" id="password" placeholder="Password">
+                          <label>Contraseña</label>
+                        </div>
+                     <div>
+                       <label> Status</label>
+                        <p>
+                            <label>
+                              <input [(ngModel)]="user.status" #firstName="ngModel"  name="Status" type="radio" value="true" checked />
+                              <span>Activo</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input [(ngModel)]="user.status" #firstName="ngModel"  name="Status" type="radio" value="false" />
+                              <span>Inactivo</span>
+                            </label>
+                          </p>
+                     </div>
+                     <button (click)="deleteUser($event, user)" class="btn red right">Borrar
+                       <i class="material-icons right">delete_forever</i>
+                     </button>
+                     <button type="submit" class="btn orange ">Actualizar
+                       <i class="material-icons right">save</i>
+                     </button>
+            </div>
+          </form>
+
+      </div>
+    </tbody>
+  </table>
+</div>
+<ng-template #noUsers>
+ <hr>
+ <h5>No existen usuarios</h5>
+</ng-template>
