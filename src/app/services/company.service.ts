@@ -27,7 +27,6 @@ export class CompanyService {
 
    getCompanys() {
     return this.companys;
-    safghjk
   }
   addCompany(company: CompanyInterface){
     console.log('NEW COMPANY');
