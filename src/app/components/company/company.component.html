@@ -1,0 +1,85 @@
+<div *ngIf="companys?.length > 0; else noCompanys">
+  <h2>Compañias</h2>
+  <table class="striped responsive-table">
+      <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Ubicacion</th>
+            <th>Email</th>
+            <th>Tel</th>
+            <th>Extension</th>
+            <th>Responsable</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let company of companys">
+        <tr>
+          <td>{{company.name}}</td>
+          <td>{{company.location}}</td>
+          <td>{{company.email}}</td>
+          <td>{{company.tel}}</td>
+          <td>{{company.extension}}</td>
+          <td>{{company.responsable}}</td>
+          <a class="secondary-content mano">
+            <i *ngIf="editState == false" (click)="editCompany($event, company)" class="material-icons">mode_edit</i>
+            <i *ngIf="editState && companyToEdit.id == company.id" (click)="clearState()" class="material-icons">close</i>
+          </a>
+        </tr>
+        <hr>
+        <div *ngIf="editState && companyToEdit.id == company.id" style="margin-left: 20px" class="container-updateCompany">
+          <!--TODO form-->
+          <form (ngSubmit)="onUpdateCompany(company)" class="col s12 m6">
+            <div class="row">
+              <div class="input-field col s12 m6">
+                  <label>Nombre</label>
+                  <br>
+                <input [(ngModel)]="company.name" #name="ngModel" type="text" name="name" id="name" placeholder="Nombre de la Compañia">
+                
+              </div>
+              <div class="input-field col s12 m6">
+                  <label>Ubicacion</label>
+                  <br>
+                  <input [(ngModel)]="company.location" #location="ngModel"  type="text" name="location" id="location" placeholder="Ubicacion de la Compañia">
+                 
+                </div>
+                <div class="input-field col s12 m6">
+                    <label>Correo</label>
+                    <br>
+                    <input [(ngModel)]="company.email" #email="ngModel"  type="text" name="email" id="email" placeholder="Correo electronico">
+                   
+                  </div>
+                  <div class="input-field col s12 m6">
+                      <label>Telefono</label>
+                      <br>
+                      <input [(ngModel)]="company.tel" #tel="ngModel"  type="text" name="tel" id="tel" placeholder="Telefono de la compañia">
+                      
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <label>Extension</label>
+                        <br>
+                        <input [(ngModel)]="company.extension" #extension="ngModel"  type="text" name="extension" id="extension" placeholder="Extension de la Compañia">
+                        
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <label>Responsable</label>
+                          <br>
+                          <input [(ngModel)]="company.responsable" #responsable="ngModel"  type="text" name="responsable" id="responsable" placeholder="Responsable de la Compañia">
+                          <br>
+                          
+                        </div>       
+            </div>
+            <button (click)="deleteCompany($event, company)" class="btn red right btnmargin marg">Borrar
+                <i class="material-icons right">delete_forever</i>
+              </button>
+              <button type="submit" class="btn orange btnmargin marg2">Actualizar
+                <i class="material-icons right">save</i>
+              </button>
+          </form>
+        </div>
+      </tbody>
+    </table>         
+</div>
+<ng-template #noCompanys>
+  <hr>
+  <h5>No existen compañias registradas</h5>
+</ng-template>

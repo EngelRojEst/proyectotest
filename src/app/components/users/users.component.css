@@ -1,0 +1,37 @@
+.secondary-content {
+    color: #000;
+}
+
+.mano{
+    cursor: pointer;
+}
+
+.btnmargin{
+    
+    min-width: 158px;
+}
+
+@media (max-width: 1242px) and (min-width: 800px){
+    .btnquery{
+        width: 100px !important;
+    }
+}
+
+.marg{
+    margin-top: 0px;
+    margin-right: 0px;    
+}
+.marg2{
+    margin-left: 0px;
+}
+
+@media (max-width: 485px){
+    .marg{
+        margin-right: -47px;
+        min-width: 120px;    
+    }
+    .marg2{
+        margin-left: -35px;
+        min-width: 100px;
+    }
+}

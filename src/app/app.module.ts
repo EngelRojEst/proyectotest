@@ -9,14 +9,18 @@ import { UserService } from './services/user.service';
 import { CompanyService } from './services/company.service';
 import { TicketService } from './services/ticket.service';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './componets/navbar/navbar.component';
-import { UsersComponent } from './componets/users/users.component';
-import { AddUsersComponent } from './componets/add-users/add-users.component';
-import { CompanyComponent } from './componets/company/company.component';
-import { AddCompanyComponent } from './componets/add-company/add-company.component';
-import { TicketComponent } from './componets/ticket/ticket.component';
-import { AddTicketComponent } from './componets/add-ticket/add-ticket.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UsersComponent } from './components/users/users.component';
+import { AddUsersComponent } from './components/add-users/add-users.component';
+import { CompanyComponent } from './components/company/company.component';
+import { AddCompanyComponent } from './components/add-company/add-company.component';
+import { TicketComponent } from './components/ticket/ticket.component';
+import { AddTicketComponent } from './components/add-ticket/add-ticket.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,17 @@ import { AddTicketComponent } from './componets/add-ticket/add-ticket.component'
     CompanyComponent,
     AddCompanyComponent,
     TicketComponent,
-    AddTicketComponent
+    AddTicketComponent,
+    HomePageComponent,
+    LoginPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'tickets'),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [UserService, CompanyService, TicketService],
   bootstrap: [AppComponent]

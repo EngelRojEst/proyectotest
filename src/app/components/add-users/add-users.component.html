@@ -1,0 +1,63 @@
+<div class="card">
+        <div class="card-content">
+          <span class="card-title">Nuevo Usuario</span>
+          <form (ngSubmit)="onSaveUser(formNew)" #formNew="ngForm" class="col s12 m6">
+            <div class="row">
+            <div class="input-field col s12 m6">
+                <label>Primer nombre</label>
+                <br>
+              <input [(ngModel)]="user.firstName" #firstName="ngModel"  type="text" name="firstName" id="firstName" placeholder="First name">
+              
+            </div>
+            <div class="input-field col s12 m6">
+                <label>Apellidos</label>
+                <br>
+                <input [(ngModel)]="user.lastName" #firstName="ngModel"  type="text" name="lastName" id="lastName" placeholder="Last name">
+               
+              </div>
+              <div class="input-field col s12 m6">
+                  <label>Correo electronico</label>
+                  <br>
+                  <input [(ngModel)]="user.email" #firstName="ngModel"  type="text" name="email" id="email" placeholder="Email">
+                  
+                </div>
+                <div class="input-field col s12 m6">
+                    <label>Empresa</label>
+                    <br>
+                    <input [(ngModel)]="user.company" #firstName="ngModel"  type="text" name="company" id="company" placeholder="company name">
+                    
+                  </div>
+                  <div class="input-field col s12 m6">
+                      <label>Tipo de usuario</label>
+                      <br>
+                      <input [(ngModel)]="user.type" #firstName="ngModel"  type="text" name="type" id="type" placeholder="Type">
+                      
+                    </div>
+                      <div class="input-field col s12 m6">
+                          <label>Contraseña</label>
+                          <br>
+                          <input [(ngModel)]="user.password" #firstName="ngModel"  type="text" name="password" id="password" placeholder="Password">
+                          
+                        </div>
+                     <div>
+                       <label> Status</label>
+                        <p>
+                            <label>
+                              <input [(ngModel)]="user.status" #firstName="ngModel"  name="Status" type="radio" value="true" checked />
+                              <span>Activo</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input [(ngModel)]="user.status" #firstName="ngModel"  name="Status" type="radio" value="false" />
+                              <span>Inactivo</span>
+                            </label>
+                          </p>
+                     </div>
+                     <button type="submit" class="btn waves-effect waves-light orange right">Guardar
+                       <i class="material-icons">add_circle</i>
+                     </button>
+            </div>
+          </form>
+        </div>
+      </div>
