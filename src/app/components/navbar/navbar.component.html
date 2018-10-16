@@ -1,4 +1,5 @@
-<nav class="navbar">
+<!--
+    <nav class="navbar">
   <div class="nav-wrapper black">
     <ul id="nav-mobile"  class="nav" >
         <li><a href="#" >Menu</a>
@@ -19,6 +20,48 @@
     <a href="#" class="brand-logo right">Sistema de Ticktes</a>
   </div>
 </nav>
+-->
+
+
+<!-- Dropdown Structure -->
+<nav class="nav-wrapper black">
+  <div class="container">
+
+    <a href="#" class="brand-logo">Tickets</a>
+    <a href="#" data-target="menu-responsive" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+
+    <ul class="right hide-on-med-and-down">
+        <li class="lista"><a href="#" routerLink="/users" (click)="actualizar();">Usuarios</a></li>
+        <li class="lista"><a href="#" routerLink="/addUser">Crear nuevo usuario</a></li>
+        <li class="lista"><a href="#" routerLink="/Company" (click)="actualizar();">Compañias</a></li>
+        <li class="lista"><a href="#" routerLink="/addCompamy">Añadir compañia</a></li>
+        <li class="lista"><a href="#" routerLink="/ticket">Tickets</a></li>
+        <li class="lista"><a href="#" routerLink="/addTicket">Crear nuevo Ticket</a></li>
+        <li><a href="#" routerLink="/usuarios">Home</a></li>
+        <li><a href="#" routerLink="/login">Iniciar sesion</a></li>
+        <li class="lista"><a href="#">Salir</a></li>
+    </ul>
+
+  </div>
+
+</nav>
+
+<ul class="sidenav" id="menu-responsive">
+    <li><a href="#" routerLink="/usuarios">Home</a></li>
+    <li class="lista"><a href="#" routerLink="/users" (click)="actualizar();">Usuarios</a></li>
+    <li class="lista"><a href="#" routerLink="/addUser">Crear nuevo usuario</a></li>
+    <li class="lista"><a href="#" routerLink="/Company" (click)="actualizar();">Compañias</a></li>
+    <li class="lista"><a href="#" routerLink="/addCompamy">Añadir compañia</a></li>
+    <li class="lista"><a href="#" routerLink="/ticket">Tickets</a></li>
+    <li class="lista"><a href="#" routerLink="/addTicket">Crear nuevo Ticket</a></li>
+    <li class="lista"><a href="#">Salir</a></li>
+</ul>
+
+
+ 
+
 
 
 

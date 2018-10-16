@@ -22,6 +22,10 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  actualizar(){
+    window.location.reload();
+  }
+
   editUser(event, user: UserInterface){
     this.editState = true;
     this.userToEdit = user;

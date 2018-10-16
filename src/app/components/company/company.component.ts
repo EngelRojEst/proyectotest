@@ -16,10 +16,14 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit() {
     this.companyService.getCompanys().subscribe(companys => {
-      //console.log(companys);
       this.companys = companys;
     });
   }
+
+  actualizar(){
+    window.location.reload();
+  }
+
   editCompany(event, company: CompanyInterface){
     this.editState = true;
     this.companyToEdit = company;

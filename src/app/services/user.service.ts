@@ -18,6 +18,7 @@ export class UserService {
     this.usersCollection = afs.collection<UserInterface>('users');
     this.users = this.usersCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
+        console.log('hgjhgjkj')
         const data = a.payload.doc.data() as UserInterface;
         const id = a.payload.doc.id;
         return {id, ...data };
@@ -26,6 +27,7 @@ export class UserService {
    }
 
    getUsers() {
+     console.log('asdfghj');
      return this.users;
    }
    addUser(user: UserInterface){
